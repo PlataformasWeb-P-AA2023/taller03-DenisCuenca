@@ -1,0 +1,26 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.uno {
+  margin: 10px;
+
+  border: 6px solid #000;
+}
+.mensaje {
+  outline: 4px solid rgb(64, 64, 163);
+  border: 1px solid #ffe600;
+  padding: 10px;
+}
+
+.dos {
+  margin: 10px;
+  background: #c4b953;
+}
+
+.dos p {
+  color: #fff;
+  margin: 5px;
+  border-bottom: 2px solid #227145;
+}
