@@ -55,8 +55,6 @@
         text-align: center;
       }
 
-      /* font-weight: 800; */
-      /* font-size: 20px; */
       li {
         margin-left: 30px;
       }
@@ -66,7 +64,7 @@
   <body>
     <h1>Datos:</h1>
 
-    <button id="button">button</button>
+    <button id="button">Traer datos</button>
 
     <div id="dataload"></div>
   </body>
@@ -87,8 +85,6 @@
 
           card_head.className = "card_head";
 
-          // 234,182,118
-          // 245, 99, 66
           const r1 = Math.floor(Math.random() * (240 - 180 + 1)) + 180;
           const r2 = Math.floor(Math.random() * (240 - 180 + 1)) + 180;
 
@@ -98,12 +94,7 @@
           const g1 = Math.floor(Math.random() * (250 - 200 + 1)) + 100;
           const g2 = Math.floor(Math.random() * (200 - 100 + 1)) + 100;
 
-          // card_head.style.cssText += `background-color: rgb(${r}, ${g}, ${b})`;
           card_head.style.cssText += `background: linear-gradient(to left, rgb(${r1}, ${g1}, ${b1}) 40%, rgb(${r2}, ${g2}, ${b2}) 70% )`;
-
-          console.log(
-            `background: linear-gradient(to left, rgb(${r1}, ${g1}, ${b1}) 10%, rgb(${r2}, ${g2}, ${b2}) 50% )`
-          );
 
           title = document.createElement("p");
           title.className = "title";
@@ -166,7 +157,5 @@
         }
       });
     });
-
-    console.log(Math.floor(Math.random() * (255 - 0 + 1)) + 0);
   </script>
 </html>
