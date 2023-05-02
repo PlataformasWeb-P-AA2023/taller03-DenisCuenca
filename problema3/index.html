@@ -2,14 +2,63 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
     <style>
+      * {
+        font-family: "Roboto Condensed", sans-serif;
+        padding: 0;
+        margin: 0;
+        overflow-x: hidden;
+      }
+
       .card {
-        background-color: aquamarine;
+        min-width: 270px;
+        width: 400px;
+
+        border-radius: 10px;
+        box-shadow: 1px 0px 4px -1px #000;
+        flex: 1;
+        margin: 20px;
+      }
+      #dataload {
+        width: 100%;
+        margin-left: 10px;
+        display: flex;
+        flex-wrap: wrap;
+
+        flex-grow: 1;
+        margin: auto;
+      }
+
+      .card_head {
+        width: 100%;
+
+        margin: auto;
+        border-radius: 10px 10px 0px 0px;
+        padding: 20px 0px;
+        color: #ffff;
+        text-shadow: 1px 1px 1px #000;
+      }
+
+      .card_head .title,
+      .subtitle {
+        text-align: center;
+      }
+
+      /* font-weight: 800; */
+      /* font-size: 20px; */
+      li {
+        margin-left: 30px;
       }
     </style>
   </head>
@@ -34,15 +83,40 @@
 
           div.className = "card";
 
-          cons = document.createElement("p");
-          cons.innerHTML =
-            `<b>Country's customary English short name (CLDR):</b> ` +
-            d["CLDR display name"];
-          div.appendChild(cons);
+          let card_head = document.createElement("div");
 
-          cons = document.createElement("p");
-          cons.innerHTML = `<b>Capital city from Geonames:</b> ` + d["Capital"];
-          div.appendChild(cons);
+          card_head.className = "card_head";
+
+          // 234,182,118
+          // 245, 99, 66
+          const r1 = Math.floor(Math.random() * (240 - 180 + 1)) + 180;
+          const r2 = Math.floor(Math.random() * (240 - 180 + 1)) + 180;
+
+          const b1 = Math.floor(Math.random() * (130 - 100 + 1)) + 100;
+          const b2 = Math.floor(Math.random() * (70 - 50 + 1)) + 50;
+
+          const g1 = Math.floor(Math.random() * (250 - 200 + 1)) + 100;
+          const g2 = Math.floor(Math.random() * (200 - 100 + 1)) + 100;
+
+          // card_head.style.cssText += `background-color: rgb(${r}, ${g}, ${b})`;
+          card_head.style.cssText += `background: linear-gradient(to left, rgb(${r1}, ${g1}, ${b1}) 40%, rgb(${r2}, ${g2}, ${b2}) 70% )`;
+
+          console.log(
+            `background: linear-gradient(to left, rgb(${r1}, ${g1}, ${b1}) 10%, rgb(${r2}, ${g2}, ${b2}) 50% )`
+          );
+
+          title = document.createElement("p");
+          title.className = "title";
+          title.innerHTML = d["CLDR display name"];
+          +"<br>";
+          card_head.appendChild(title);
+
+          subtitle = document.createElement("p");
+          subtitle.className = "subtitle";
+          subtitle.innerHTML = `<b>Capital city:</b> ` + d["Capital"];
+          card_head.appendChild(subtitle);
+
+          div.appendChild(card_head);
 
           cons = document.createElement("p");
           cons.innerHTML =
@@ -92,5 +166,7 @@
         }
       });
     });
+
+    console.log(Math.floor(Math.random() * (255 - 0 + 1)) + 0);
   </script>
 </html>
